@@ -44,7 +44,11 @@ This scope of this document is intended to be the culmination of the required an
 
 This specification utilises the various terms outlined within [@!DATARIGHTPLUS-ROSETTA].
 
-### CDR Register
+# Supported Arrangement Types
+
+Providers and Initiators **MUST** support the following:
+
+1. CDR Sharing Arrangement V1 as described in [@!DATARIGHTPLUS-INFOSEC-SHARING-V1]
 
 # Acknowledgement
 
@@ -54,6 +58,9 @@ The following people contributed to this document:
 - Ben Kolera (Biza.io)
 
 {backmatter}
+
+<reference anchor="DATARIGHTPLUS-INFOSEC-SHARING-V1" target="https://datarightplus.github.io/datarightplus-specs/main/datarightplus-infosec-sharing-v1.html"> <front><title>CDR: Sharing Arrangement V1</title><author initials="S." surname="Low" fullname="Stuart Low"><organization>Biza.io</organization></author></front> </reference>
+
 
 
 
