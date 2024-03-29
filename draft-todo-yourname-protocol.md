@@ -1,89 +1,61 @@
----
-###
-# Internet-Draft Markdown Template
-#
-# Rename this file from draft-todo-yourname-protocol.md to get started.
-# Draft name format is "draft-<yourname>-<workgroup>-<name>.md".
-#
-# For initial setup, you only need to edit the first block of fields.
-# Only "title" needs to be changed; delete "abbrev" if your title is short.
-# Any other content can be edited, but be careful not to introduce errors.
-# Some fields will be set automatically during setup if they are unchanged.
-#
-# Don't include "-00" or "-latest" in the filename.
-# Labels in the form draft-<yourname>-<workgroup>-<name>-latest are used by
-# the tools to refer to the current version; see "docname" for example.
-#
-# This template uses kramdown-rfc: https://github.com/cabo/kramdown-rfc
-# You can replace the entire file if you prefer a different format.
-# Change the file extension to match the format (.xml for XML, etc...)
-#
-###
-title: "TODO - Your title"
-abbrev: "TODO - Abbreviation"
-category: info
+%%%
+Title = "DR+: CDR Profile"
+area = "Internet"
+workgroup = "datarightplus-cdr-profile"
+submissionType = "independent"
 
-docname: draft-todo-yourname-protocol-latest
-submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
-number:
-date:
-consensus: true
-v: 3
-area: AREA
-workgroup: WG Working Group
-keyword:
- - next generation
- - unicorn
- - sparkling distributed ledger
-venue:
-  group: WG
-  type: Working Group
-  mail: WG@example.com
-  arch: https://example.com/WG
-  github: USER/REPO
-  latest: https://example.com/LATEST
+[seriesInfo]
+name = "Internet-Draft"
+value = "draft-authors-datarightplus-cdr-profile-latest"
+stream = "independent"
+status = "informational"
 
-author:
- -
-    fullname: Your Name Here
-    organization: Your Organization Here
-    email: your.email@example.com
+date = 2024-03-28T00:00:00Z
 
-normative:
+[[author]]
+initials="S."
+surname="Low"
+fullname="Stuart Low"
+organization="Biza.io"
+[author.address]
+email = "stuart@biza.io"
 
-informative:
+[[author]]
+initials="B."
+surname="Kolera"
+fullname="Ben Kolera"
+organization="Biza.io"
+[author.address]
+email = "bkolera@biza.io"
 
+%%%
 
---- abstract
+.# Abstract
 
-TODO Abstract
+This is the overall profile of the DataRight Plus initiative in the context of the Australian Consumer Data Right.
+
+{mainmatter}
+
+# Scope
+
+This scope of this document is intended to be the culmination of the required and optional specifications to comply with the Australian Consumer Data Right. Where applicable it includes optional support for extension specifications created within the DataRight Plus initiative.
+
+# Terminology
+
+This specification utilises the various terms outlined within [@!DATARIGHTPLUS-ROSETTA].
+
+### CDR Register
+
+# Acknowledgement
+
+The following people contributed to this document:
+
+- Stuart Low (Biza.io) - Editor
+- Ben Kolera (Biza.io)
+
+{backmatter}
 
 
---- middle
-
-# Introduction
-
-TODO Introduction
 
 
-# Conventions and Definitions
 
-{::boilerplate bcp14-tagged}
-
-
-# Security Considerations
-
-TODO Security
-
-
-# IANA Considerations
-
-This document has no IANA actions.
-
-
---- back
-
-# Acknowledgments
-{:numbered="false"}
-
-TODO acknowledge.
