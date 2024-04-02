@@ -60,6 +60,7 @@ Table of Contents
      3.1.  Information Security
      3.2.  Resource Server
        3.2.1.  Metrics
+       3.2.2.  Forced Metadata Refresh
    4.  Initiators
      4.1.  Information Security
      4.2.  Resource Server Client
@@ -67,9 +68,10 @@ Table of Contents
      5.1.  Accreditation
    6.  Electricity Authority
    7.  Electricity Plan Website
-   8.  Implementation Considerations
-   9.  Acknowledgement
-   10. Normative References
+   8.  Current Ecosystem Configuration
+   9.  Implementation Considerations
+   10. Acknowledgement
+   11. Normative References
    Author's Address
 
 1.  Scope
@@ -89,9 +91,14 @@ Table of Contents
    This specification utilises the various terms outlined within
    [DATARIGHTPLUS-ROSETTA].
 
-   Banking Sector  TODO
-   Energy Sector  TODO
-   Designated Sector  TODO
+   Banking Sector  Relates to the Holders, designated under the
+      [CDR-RULES] in the Banking industry
+   Energy Sector  Relates to the Designated Holders, designated under
+      the [CDR-RULES] in the Energy industry
+   Designated Holders  Designated Holders are organisations which belong
+      to a designated sector, according to the [CDR-RULES] and meet
+      certain eligibility requirements to be required to deliver CDR
+      services within their sector.
 
 3.  Providers
 
@@ -106,7 +113,7 @@ Table of Contents
    1.  comply with the Provider provisions described in
        [DATARIGHTPLUS-INFOSEC-BASELINE-00];
    2.  comply with the provisions outlined in
-       [DATARIGHTPLUS-ADMISSION-CONTROL-BASELINE-00];
+       [DATARIGHTPLUS-ADMISSION-CONTROL-00];
    3.  comply with the provisions outlined in
        [DATARIGHTPLUS-SHARING-ARRANGEMENT-V1-00];
    4.  support the following acr claim and validate the Consumer with
@@ -123,9 +130,9 @@ Table of Contents
        3.  MUST only be valid for the purposes of establishing
            authorisations between Provider and Initiators
        4.  MUST be invalidated after a reasonable period of time
-   6.  MUST authenticate a confidential client with using
-       private_key_jwt specified in section 9 of [OIDC-Core] with a
-       client identifier of cdr-register
+   6.  MUST authenticate a confidential client using private_key_jwt as
+       described in section 9 of [OIDC-Core] with a client identifier of
+       cdr-register
    7.  MUST supply a scope value of admin:metrics.basic:read for all
        successful authentications of the cdr-register client identifier
 
@@ -158,6 +165,23 @@ Table of Contents
 
                                   Table 1
 
+3.2.2.  Forced Metadata Refresh
+
+   In addition to the aforementioned requirements Providers MUST deliver
+   protected resource(s), in accordance with
+   [DATARIGHTPLUS-REDOCLY-ID1], as follows:
+
+     +==========================+=======================+===========+
+     | Resource Server Endpoint | Required Scope        | Valid x-v |
+     +==========================+=======================+===========+
+     | GET /admin/metrics       | admin:metadata:update | 1         |
+     +--------------------------+-----------------------+-----------+
+
+                                 Table 2
+
+   On requesting this endpoint the Provider MUST trigger a refresh of
+   the information obtained from the Ecosystem Directory.
+
 4.  Initiators
 
    Initiators are required to comply with Ecosystem Authority
@@ -168,24 +192,29 @@ Table of Contents
 
 4.1.  Information Security
 
-   Initiators MUST: 1. comply with the Initiator provisions described in
-   [DATARIGHTPLUS-INFOSEC-BASELINE-00]; 1. comply with the provisions
-   outlined in [DATARIGHTPLUS-ADMISSION-CONTROL-BASELINE-00]; 1. comply
-   with the provisions outlined in
-   [DATARIGHTPLUS-SHARING-ARRANGEMENT-V1-00];
+   Initiators MUST:
+
+   1.  comply with the Initiator provisions described in
+       [DATARIGHTPLUS-INFOSEC-BASELINE-00];
+   2.  comply with the provisions outlined in
+       [DATARIGHTPLUS-ADMISSION-CONTROL-00];
+   3.  comply with the provisions outlined in
+       [DATARIGHTPLUS-SHARING-ARRANGEMENT-V1-00];
 
 4.2.  Resource Server Client
 
    Initiators MUST access Provider resource server infrastructure in
-   accordance with: 1.  [DATARIGHTPLUS-INFOSEC-BASELINE-00] and; 2.
-   [DATARIGHTPLUS-RESOURCE-SET-COMMON-00] and; 3.
-   [DATARIGHTPLUS-RESOURCE-SET-BANKING-00] and; 4.
-   [DATARIGHTPLUS-RESOURCE-SET-ENERGY-00]
+   accordance with:
+
+   1.  [DATARIGHTPLUS-INFOSEC-BASELINE-00] and;
+   2.  [DATARIGHTPLUS-RESOURCE-SET-COMMON-00] and;
+   3.  [DATARIGHTPLUS-RESOURCE-SET-BANKING-00] and;
+   4.  [DATARIGHTPLUS-RESOURCE-SET-ENERGY-00]
 
 5.  Ecosystem Authority
 
    The Ecosystem Authority MUST comply with the requirements outlined
-   within [DATARIGHTPLUS-ADMISSION-CONTROL-BASELINE-00].
+   within [DATARIGHTPLUS-ADMISSION-CONTROL-00].
 
    The Ecosystem Authority for the Australian CDR is the Australian
    Competition and Consumer Commission (ACCC)
@@ -232,13 +261,18 @@ Table of Contents
    Easy (https://energymadeeasy.gov.au/) operated by the Australian
    Energy Regulator (https://www.aer.gov.au/).
 
-8.  Implementation Considerations
+8.  Current Ecosystem Configuration
+
+   The following outlines the currently understood endpoint
+   configuration for the Australian CDR ecosystem:
+
+9.  Implementation Considerations
 
    Where One-Time Password OTP are in use the generation method SHOULD
    incorporate controls, such as retry limits, to minimise the risk of
    enumeration attacks.
 
-9.  Acknowledgement
+10.  Acknowledgement
 
    The following people contributed to this document:
 
@@ -251,7 +285,7 @@ Table of Contents
    - Ivan Hosgood (formerly Data Standards Body & ACCC) - Solutions
    Architect
 
-10.  Normative References
+11.  Normative References
 
    [CDR-RULES]
               Department of the Treasury, "Competition and Consumer
@@ -263,12 +297,12 @@ Table of Contents
               (CDS)", <https://consumerdatastandardsaustralia.github.io/
               standards>.
 
-   [DATARIGHTPLUS-ADMISSION-CONTROL-BASELINE-00]
+   [DATARIGHTPLUS-ADMISSION-CONTROL-00]
               Low, S. and B. Kolera, "DataRight+: Admission Control
               Baseline", <https://datarightplus.github.io/datarightplus-
               admission-control-baseline/draft-authors-datarightplus-
-              admission-control-baseline-00/draft-authors-datarightplus-
-              admission-control-baseline.html>.
+              admission-control-00/draft-authors-datarightplus-
+              admission-control.html>.
 
    [DATARIGHTPLUS-INFOSEC-BASELINE-00]
               Low, S. and B. Kolera, "DataRight+ Security Profile:
