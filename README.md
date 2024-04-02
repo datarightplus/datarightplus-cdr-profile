@@ -1,6 +1,6 @@
-# DR+: CDR Profile
+# DataRight+: CDR Profile
 
-This is the working area for the individual Internet-Draft, "DR+: CDR Profile".
+This is the working area for the individual Internet-Draft, "DataRight+: CDR Profile".
 
 * [Editor's Copy](https://datarightplus.github.io/datarightplus-cdr-profile/#go.draft-authors-datarightplus-cdr-profile.html)
 * [Datatracker Page](https://datatracker.ietf.org/doc/draft-authors-datarightplus-cdr-profile)
