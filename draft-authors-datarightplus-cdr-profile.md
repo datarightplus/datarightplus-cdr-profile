@@ -43,13 +43,13 @@ This document **does not** seek to navigate the complexities of [@!CDR-RULES] bu
 This specification utilises the various terms outlined within [@!DATARIGHTPLUS-ROSETTA].
 
 Banking Sector
-: TODO
+: Relates to the Holders, designated under the [@!CDR-RULES] in the Banking industry
 
 Energy Sector
-: TODO
+: Relates to the Designated Holders, designated under the [@!CDR-RULES] in the Energy industry
 
-Designated Sector
-: TODO
+Designated Holders
+: Designated Holders are organisations which belong to a designated sector, according to the [@!CDR-RULES] and meet certain eligibility requirements to be required to deliver CDR services within their sector.
 
 # Providers
 
@@ -60,7 +60,7 @@ Providers are required to deliver authorisation and resource requirements. They 
 Providers **MUST**:
 
 1. comply with the Provider provisions described in [@!DATARIGHTPLUS-INFOSEC-BASELINE-00];
-1. comply with the provisions outlined in [@!DATARIGHTPLUS-ADMISSION-CONTROL-BASELINE-00];
+1. comply with the provisions outlined in [@!DATARIGHTPLUS-ADMISSION-CONTROL-00];
 1. comply with the provisions outlined in [@!DATARIGHTPLUS-SHARING-ARRANGEMENT-V1-00];
 1. support the following `acr` claim and validate the Consumer with the following values:
     1. `urn:cds.au:cdr:2` where the authentication achieved matches the Credential Level `CL1` from [@!TDIF] or;
@@ -70,7 +70,7 @@ Providers **MUST**:
    1. **MUST** be numeric digits and be between 4 and 6 digits in length
    1. **MUST** only be valid for the purposes of establishing authorisations between Provider and Initiators
    1. **MUST** be invalidated after a reasonable period of time
-1. **MUST** authenticate a confidential client with using `private_key_jwt` specified in section 9 of [@!OIDC-Core] with a client identifier of `cdr-register`
+1. **MUST** authenticate a confidential client using `private_key_jwt` as described in section 9 of [@!OIDC-Core] with a client identifier of `cdr-register`
 1. **MUST** supply a `scope` value of `admin:metrics.basic:read` for all successful authentications of the `cdr-register` client identifier
 
 _Note:_ The CDR currently mandates, essentially exclusively, the use of One-Time Passwords while restricting the introduction of additional "friction" via other factors. It is understood this is currently being reconsidered.
@@ -89,6 +89,15 @@ In addition to the aforementioned requirements Providers **MUST** deliver protec
 |--------------------------|----------------------------|-------------|
 | `GET /admin/metrics`     | `admin:metrics.basic:read` | `5`         |
 
+### Forced Metadata Refresh
+
+In addition to the aforementioned requirements Providers **MUST** deliver protected resource(s), in accordance with [@!DATARIGHTPLUS-REDOCLY-ID1], as follows:
+
+| Resource Server Endpoint | Required Scope          | Valid `x-v` |
+|--------------------------|-------------------------|-------------|
+| `GET /admin/metrics`     | `admin:metadata:update` | `1`         |
+
+On requesting this endpoint the Provider **MUST** trigger a refresh of the information obtained from the Ecosystem Directory.
 
 # Initiators
 
@@ -99,13 +108,15 @@ Within the Australian CDR Initiators are commonly referred to as Software Produc
 ## Information Security
 
 Initiators **MUST**:
+
 1. comply with the Initiator provisions described in [@!DATARIGHTPLUS-INFOSEC-BASELINE-00];
-1. comply with the provisions outlined in [@!DATARIGHTPLUS-ADMISSION-CONTROL-BASELINE-00];
+1. comply with the provisions outlined in [@!DATARIGHTPLUS-ADMISSION-CONTROL-00];
 1. comply with the provisions outlined in [@!DATARIGHTPLUS-SHARING-ARRANGEMENT-V1-00];
 
 ## Resource Server Client
 
 Initiators **MUST** access Provider resource server infrastructure in accordance with:
+
 1. [@!DATARIGHTPLUS-INFOSEC-BASELINE-00] and;
 2. [@!DATARIGHTPLUS-RESOURCE-SET-COMMON-00] and;
 3. [@!DATARIGHTPLUS-RESOURCE-SET-BANKING-00] and;
@@ -113,7 +124,7 @@ Initiators **MUST** access Provider resource server infrastructure in accordance
 
 # Ecosystem Authority
 
-The Ecosystem Authority **MUST** comply with the requirements outlined within [@!DATARIGHTPLUS-ADMISSION-CONTROL-BASELINE-00].
+The Ecosystem Authority **MUST** comply with the requirements outlined within [@!DATARIGHTPLUS-ADMISSION-CONTROL-00].
 
 The Ecosystem Authority for the Australian CDR is the [Australian Competition and Consumer Commission (ACCC)](https://www.accc.gov.au/).
 
@@ -138,6 +149,10 @@ The Electricity Authority for the Australian CDR is the [Australian Energy Marke
 The Electricity Plan Website **MUST** comply with the relevant provisions outlined within [@!DATARIGHTPLUS-RESOURCE-SET-ENERGY-00].
 
 The Electricity Plan Website for the Australian CDR is [Energy Made Easy](https://energymadeeasy.gov.au/) operated by the [Australian Energy Regulator](https://www.aer.gov.au/).
+
+# Current Ecosystem Configuration
+
+The following outlines the currently understood endpoint configuration for the Australian CDR ecosystem:
 
 # Implementation Considerations
 
@@ -174,7 +189,7 @@ We acknowledge the contribution to the [@!CDS] of the following individuals:
 
 <reference anchor="DATARIGHTPLUS-RESOURCE-SET-COMMON-00" target="https://datarightplus.github.io/datarightplus-resource-set-common/draft-authors-datarightplus-resource-set-common-00/draft-authors-datarightplus-resource-set-common.html"> <front><title>DataRight+: Common Resource Set</title><author initials="S." surname="Low" fullname="Stuart Low"><organization>Biza.io</organization></author></front> </reference>
 
-<reference anchor="DATARIGHTPLUS-ADMISSION-CONTROL-BASELINE-00" target="https://datarightplus.github.io/datarightplus-admission-control-baseline/draft-authors-datarightplus-admission-control-baseline-00/draft-authors-datarightplus-admission-control-baseline.html"> <front><title>DataRight+: Admission Control Baseline</title><author initials="S." surname="Low" fullname="Stuart Low"><organization>Biza.io</organization></author><author initials="B." surname="Kolera" fullname="Ben Kolera"><organization>Biza.io</organization></author></front> </reference>
+<reference anchor="DATARIGHTPLUS-ADMISSION-CONTROL-00" target="https://datarightplus.github.io/datarightplus-admission-control-baseline/draft-authors-datarightplus-admission-control-00/draft-authors-datarightplus-admission-control.html"> <front><title>DataRight+: Admission Control Baseline</title><author initials="S." surname="Low" fullname="Stuart Low"><organization>Biza.io</organization></author><author initials="B." surname="Kolera" fullname="Ben Kolera"><organization>Biza.io</organization></author></front> </reference>
 
 <reference anchor="DATARIGHTPLUS-INFOSEC-BASELINE-00" target="https://datarightplus.github.io/datarightplus-infosec-baseline/draft-authors-datarightplus-infosec-baseline-00/draft-authors-datarightplus-infosec-baseline.html"> <front><title>DataRight+ Security Profile: Baseline</title><author initials="S." surname="Low" fullname="Stuart Low"><organization>Biza.io</organization></author><author initials="B." surname="Kolera" fullname="Ben Kolera"><organization>Biza.io</organization></author></front> </reference>
 
