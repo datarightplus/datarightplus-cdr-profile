@@ -165,6 +165,7 @@ The following people contributed to this document:
 - Stuart Low (Biza.io) - Editor
 
 We acknowledge the contribution to the [@!CDS] of the following individuals:
+
 - James Bligh (Data Standards Body) - Lead Architect for the Consumer Data Right
 - Mark Verstege (Data Standards Body) - Lead Architect, Banking & Information Security for the Consumer Data Right
 - Ivan Hosgood (formerly Data Standards Body & ACCC) - Solutions Architect
