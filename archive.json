@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-01-30T00:13:33.950264+00:00",
+  "timestamp": "2025-02-11T00:14:01.350975+00:00",
   "repo": "datarightplus/datarightplus-cdr-profile",
   "labels": [
     {
@@ -50,5 +50,34 @@
     }
   ],
   "issues": [],
-  "pulls": []
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOLnDXuc6KiTEN",
+      "title": "Upgrade to latest github workflow",
+      "url": "https://github.com/datarightplus/datarightplus-cdr-profile/pull/1",
+      "state": "MERGED",
+      "author": "perlboy",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-02-09T00:42:34Z",
+      "updatedAt": "2025-02-09T00:42:41Z",
+      "baseRepository": "datarightplus/datarightplus-cdr-profile",
+      "baseRefName": "main",
+      "baseRefOid": "7c800a616e76858166d92672ac73291dc8993b7a",
+      "headRepository": "datarightplus/datarightplus-cdr-profile",
+      "headRefName": "upgrade-github-workflow",
+      "headRefOid": "f5623133ba2b38ecebf1c3f5fe5ed673f672e12b",
+      "closedAt": "2025-02-09T00:42:41Z",
+      "mergedAt": "2025-02-09T00:42:41Z",
+      "mergedBy": "perlboy",
+      "mergeCommit": {
+        "oid": "c13938bd801dd93f3e33ccd727a41bebe883740d"
+      },
+      "comments": [],
+      "reviews": []
+    }
+  ]
 }
